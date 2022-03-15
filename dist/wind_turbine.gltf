@@ -111,7 +111,7 @@
                     }
                 }
             ],
-            "name" : "Cylinder.001Action.001",
+            "name" : "rotation",
             "samplers" : [
                 {
                     "input" : 19,
