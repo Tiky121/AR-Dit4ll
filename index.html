@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hit Testing</title>
+    <title>AR GLTF</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/jsm/libs/stats.module.js"></script>
   </head>
 
   <body>
@@ -84,14 +85,16 @@
         //reticle.add(new THREE.AxesHelper(1));
       }
 
-      const modelUrl = './wind_turbine.gltf';
+      const modelUrl = './wind_turbine.glb';
       function onSelect() {        
         if (reticle.visible) {
           // cone added at the point of a hit test
           // replace the next lines to add your own object in space
           const geometry = new THREE.GLTFLoader();
           geometry.load(modelUrl,
-          function (gltf) {scene.add(gltf.scene);
+          function (gltf) {
+              
+          scene.add(gltf.scene);
           
           // set the position of the cylinder based on where the reticle is          
           gltf.scene.position.setFromMatrixPosition(reticle.matrix);
